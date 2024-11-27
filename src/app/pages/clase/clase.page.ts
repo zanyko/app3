@@ -90,4 +90,7 @@ export class ClasePage implements OnInit {
     this.menucontroller.enable(true);
     this.menucontroller.open('zapl');
   }
+  goBack(){
+    this.router.navigate(['/tabs/gestion']);
+  }
 }
