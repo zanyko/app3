@@ -83,6 +83,11 @@ export class LoginPage implements OnInit {
         this.UsuarioInactivo();
         return;
       }
+      if (this.userdata[0].tipo != 1) {
+        this.loginForm.reset();
+        this.tipoUser();
+        return;
+      }
       this.IniciarSesion(this.usuario);
     })
   }
@@ -96,7 +101,6 @@ export class LoginPage implements OnInit {
     this.router.navigate(['/tabs/home']);
 
   }
-  
   async showToast(msg: any){
     const toast= await this.toast.create({
       message:msg,
@@ -117,7 +121,7 @@ export class LoginPage implements OnInit {
   async ErrorUsuario(){
     const alerta = await this.alertcontroller.create({ 
       header : 'Error',
-      message : 'Wrong user or password',
+      message : 'Contraseña o usuario incorrectos',
       buttons : ['OK']
     })
     alerta.present();
@@ -127,6 +131,14 @@ export class LoginPage implements OnInit {
     const alerta = await this.alertcontroller.create({ 
       header : 'No existe...',
       message : 'Los datos no coinciden',
+      buttons : ['OK']
+    })
+    alerta.present();
+  }
+  async tipoUser(){
+    const alerta = await this.alertcontroller.create({ 
+      header : 'Error',
+      message : 'El usuario ingresado debe ser docente',
       buttons : ['OK']
     })
     alerta.present();
