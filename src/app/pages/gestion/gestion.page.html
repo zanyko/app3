@@ -1,0 +1,43 @@
+<ion-content [fullscreen]="true">
+
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="mostrarMenu()">
+        <ion-icon name="menu-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+      Gestión de clases
+    </ion-title>
+  </ion-toolbar>
+  
+  <div class="container">
+    <ion-item>
+      <ion-label>Aquí podrá gestionar sus clases</ion-label>
+    </ion-item>
+
+
+    <ion-card *ngFor="let c of klasses">
+      <ion-card-content>
+
+        <h4>Clase: </h4>
+        <ion-label>{{ c.name }}</ion-label>
+        
+        <h4>Código</h4>
+        <ion-label>{{ c.id }}</ion-label>
+
+        <ion-button (click)="verClase( c.id )" expand="block" fill="clear" shape="round">
+          Ver clase
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
+
+
+
+
+
+
+
+  </div>
+  
+</ion-content>

@@ -1,0 +1,57 @@
+<ion-content [fullscreen]="true">
+
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="mostrarMenu()">
+        <ion-icon name="menu-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+      Mi perfil
+    </ion-title>
+  </ion-toolbar>
+  
+  <div class="container">
+    <ion-item style="margin-top: 1rem;">
+      <ion-label>Aquí podrá ver los datos de su perfil</ion-label>
+    </ion-item>
+
+    <ion-card>
+      <ion-card-content>
+        <form [formGroup]="dataForm">
+
+          <p>Usuario</p>
+          <ion-item>
+            <ion-label>{{ dataForm.value.username }}</ion-label>
+          </ion-item>
+          <p>Email</p>
+          <ion-item>
+            <ion-label>{{ dataForm.value.email }}</ion-label>
+          </ion-item>
+          <p>Nombre</p>
+          <ion-item>
+            <ion-label>{{ dataForm.value.name1 }} {{ dataForm.value.name2 }} {{ dataForm.value.name3 }} {{ dataForm.value.name4 }}</ion-label>
+          </ion-item>
+          <p>Telefono</p>
+          <ion-item>
+            <ion-label>{{ dataForm.value.phone }}</ion-label>
+          </ion-item>
+          <p>Tipo de usuario</p>
+          <ion-item>
+            <ion-label>{{ dataForm.value.type }}</ion-label>
+          </ion-item>
+        </form>
+  
+      </ion-card-content>
+    </ion-card>
+
+
+
+    <ion-card>
+      <ion-button (click)="mod()" expand="block" fill="clear" shape="round">
+        Modificar Perfil
+      </ion-button>
+    </ion-card>
+
+  </div>  
+</ion-content>

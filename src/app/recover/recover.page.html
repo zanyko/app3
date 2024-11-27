@@ -1,0 +1,30 @@
+<ion-content>
+
+  <div class="toolbar">
+    <ion-button (click)="goBack()" expand="block" fill="clear" shape="round">
+      <ion-icon name="chevron-back-outline"></ion-icon>
+    </ion-button>
+    <div>
+      <ion-title>Class-CheckIn:</ion-title>
+      <ion-title>Docentes</ion-title>
+    </div>
+  </div>
+  
+  <ion-card>
+    <ion-card-title>
+      Recuperar contraseña
+    </ion-card-title>
+    <ion-card-content>
+
+      <ion-item>
+        <ion-input label="Email: " name="email" labelPlacement="floating"  [(ngModel)]="email" type="text" placeholder="Ingrese su email registrado"></ion-input>
+      </ion-item>
+
+      <div style="text-align: center;">
+        <ion-button (click)="recover()" fill="clear">Entrar</ion-button>
+      </div>
+
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

@@ -1,0 +1,120 @@
+<ion-content [fullscreen]="true">
+
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()" expand="block" fill="clear" shape="round">
+        <ion-icon name="chevron-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+      Modificar perfil
+    </ion-title>
+  </ion-toolbar>
+  
+  <div class="container">
+    <ion-item>
+      <ion-label>Aquí podrá modificar los datos de su perfil</ion-label>
+    </ion-item>
+  </div>
+  <ion-card>
+    <ion-card-content>
+
+      <form [formGroup]="modForm">
+        <!-- ーーーーーーーーーーーーーー -->
+        <ion-item>
+          <ion-input type="email" formControlName="email" label="Email:" labelPlacement="floating" autofocus="true"></ion-input>
+        </ion-item>
+          <div id="alerta" *ngIf="modForm.get('email')?.invalid && (modForm.get('email')?.dirty || 
+                      modForm.get('email')?.touched)">
+              <div id="alerta" *ngIf="modForm.get('email')?.hasError('required')">
+                *Email es obligatorio
+              </div>
+              <div id="alerta" *ngIf="modForm.get('email')?.hasError('email')">
+                *Formato no válido
+              </div>
+          </div>
+        <!-- ーーーーーーーーーーーーーー -->
+        <ion-item>
+          <ion-input type="password" formControlName="password" label="Password:" labelPlacement="floating"></ion-input>
+        </ion-item>
+          <div id="alerta" *ngIf="modForm.get('password')?.invalid && (modForm.get('password')?.dirty || 
+                      modForm.get('password')?.touched)">
+              <div id="alerta" *ngIf="modForm.get('password')?.hasError('required')">
+                *Campo obligatorio
+              </div>
+              <div id="alerta" *ngIf="modForm.get('password')?.hasError('pattern')">
+                *Mínimo 8 caracteres y un número
+              </div>
+          </div>
+        <!-- ーーーーーーーーーーーーーー -->
+        <ion-item>
+          <ion-input type="text" placeholder="Ingrese primer nombre" formControlName="name1" label="Primer nombre" labelPlacement="floating"></ion-input>
+        </ion-item>
+          <div id="alerta" *ngIf="modForm.get('name1')?.invalid && (modForm.get('name1')?.dirty || 
+                      modForm.get('name1')?.touched)">
+              <div id="alerta" *ngIf="modForm.get('name1')?.hasError('required')">
+                *Campo obligatorio
+              </div>
+              <div id="alerta" *ngIf="modForm.get('name1')?.hasError('minlength')">
+                *Cantidad requerida: 3
+              </div>
+          </div>
+        <!-- ーーーーーーーーーーーーーー -->
+        <ion-item>
+          <ion-input type="text" placeholder="Ingrese segundo nombre" formControlName="name2" label="Segundo nombre" labelPlacement="floating"></ion-input>
+        </ion-item>
+          <div id="alerta" *ngIf="modForm.get('name2')?.invalid && (modForm.get('name2')?.dirty || 
+                      modForm.get('name2')?.touched)">
+              <div id="alerta" *ngIf="modForm.get('name2')?.hasError('minlength')">
+                *Cantidad requerida: 3
+              </div>
+          </div>
+        <!-- ーーーーーーーーーーーーーー -->
+        <ion-item>
+          <ion-input type="text" placeholder="Ingrese primer apellido" formControlName="name3" label="Primer apellido" labelPlacement="floating"></ion-input>
+        </ion-item>
+          <div id="alerta" *ngIf="modForm.get('name3')?.invalid && (modForm.get('name3')?.dirty || 
+                      modForm.get('name3')?.touched)">
+              <div id="alerta" *ngIf="modForm.get('name3')?.hasError('required')">
+                *Campo obligatorio
+              </div>
+              <div id="alerta" *ngIf="modForm.get('name3')?.hasError('minlength')">
+                *Cantidad requerida: 3
+              </div>
+          </div>
+        <!-- ーーーーーーーーーーーーーー -->
+        <ion-item>
+          <ion-input type="text" placeholder="Ingrese segundo apellido" formControlName="name4" label="Segundo apellido" labelPlacement="floating"></ion-input>
+        </ion-item>
+          <div id="alerta" *ngIf="modForm.get('name4')?.invalid && (modForm.get('name4')?.dirty || 
+                      modForm.get('name4')?.touched)">
+              <div id="alerta" *ngIf="modForm.get('name4')?.hasError('minlength')">
+                *Cantidad requerida: 3
+              </div>
+          </div>
+        <!-- ーーーーーーーーーーーーーー -->
+        <ion-item>
+          <ion-input type="text" placeholder="Ingrese telefono" formControlName="phone" label="Número telefónico" labelPlacement="floating"></ion-input>
+        </ion-item>
+          <div id="alerta" *ngIf="modForm.get('phone')?.invalid && (modForm.get('phone')?.dirty || 
+                      modForm.get('phone')?.touched)">
+              <div id="alerta" *ngIf="modForm.get('phone')?.hasError('required')">
+                *Campo obligatorio
+              </div>
+              <div id="alerta" *ngIf="modForm.get('phone')?.hasError('minlength')">
+                *Cantidad requerida: 8
+              </div>
+          </div>
+        
+        <!-- ーーーーーーーーーーーーーー -->
+
+        <div style="text-align: center; margin-bottom: 0;">
+          <ion-button class="signup" (click)="modPerfil()" [disabled]="!modForm.valid" fill="clear">Modificar</ion-button>
+        </div>   
+        
+      </form>
+
+    </ion-card-content>
+  </ion-card>
+  
+</ion-content>

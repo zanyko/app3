@@ -1,0 +1,11 @@
+ion-tab-bar{
+    ion-tab-button[active]{
+        color: cyan;
+    }
+
+    ion-tab-button{
+        ion-label{
+            color: lightblue;
+        }
+    }
+}

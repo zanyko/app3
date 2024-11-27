@@ -1,0 +1,77 @@
+// For information on how to create your own theme, please see:
+// http://ionicframework.com/docs/theming/
+
+
+* {
+    font-family: 'Courier New', Courier, monospace !important;
+}
+#alerta {
+    color: aquamarine;
+}
+h4 {
+    color: rgb(100, 255, 100);
+    font-size: 18px;
+}
+p {
+    color:#ffffff;
+    font-size: 16px;
+}
+
+ion-content {
+    margin-top: 0px !important;
+    --background: none;
+    background-image: url('../assets/bg/aero2.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.container {
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+ion-toolbar {
+    --background: none;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid lightblue;
+    border-radius: 15px;
+}
+ion-card {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid lightseagreen;
+    border-radius: 15px;
+    padding: 1rem;
+}
+ion-item {
+    --background: none;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid lightblue;
+    border-radius: 15px;
+    margin-top: 2rem;
+}
+ion-label {
+    color: aqua;
+    font-size: 20px;
+}
+ion-button {
+    background: rgba(0,0,0,0.3);
+    border: 1px solid lightblue;
+    border-radius: 15px;
+    color: #ffffff;
+    margin-top: 2vh;
+}
+
+/*
+<div class="qr">
+    <img src="../../../assets/img/vidyan.jpg">
+</div>
+.qr {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+img {
+    height: 12rem;
+    border-radius: 15px;
+}
+
+*/

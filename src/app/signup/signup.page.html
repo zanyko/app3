@@ -1,0 +1,128 @@
+<ion-content [fullscreen]="true">
+  <div class="toolbar">
+    <ion-button (click)="goBack()" expand="block" fill="clear" shape="round">
+      <ion-icon name="chevron-back-outline"></ion-icon>
+    </ion-button> 
+    <div>
+      <ion-title>Class-CheckIn:</ion-title>
+      <ion-title>Estudiantes</ion-title>
+    </div>
+  </div>
+  
+  <ion-card>
+    <ion-card-title>
+      Registrarse
+    </ion-card-title>
+    <ion-card-content>
+
+      <form [formGroup]="registroForm">
+
+        <ion-item>
+          <ion-input type="text" placeholder="Ingrese usuario" formControlName="username" label="Username:" labelPlacement="floating" autofocus="true"></ion-input>
+        </ion-item>
+          <div id="alerta" *ngIf="registroForm.get('username')?.invalid && (registroForm.get('username')?.dirty || 
+                      registroForm.get('username')?.touched)">
+              <div id="alerta" *ngIf="registroForm.get('username')?.hasError('required')">
+                *Username es obligatorio
+              </div>
+              <div id="alerta" *ngIf="registroForm.get('username')?.hasError('minlength')">
+                *Cantidad requerida: 3
+              </div>
+          </div>
+        <!-- ーーーーーーーーーーーーーー -->
+        <ion-item>
+          <ion-input type="email" formControlName="email" label="Email:" labelPlacement="floating"></ion-input>
+        </ion-item>
+          <div id="alerta" *ngIf="registroForm.get('email')?.invalid && (registroForm.get('email')?.dirty || 
+                      registroForm.get('email')?.touched)">
+              <div id="alerta" *ngIf="registroForm.get('email')?.hasError('required')">
+                *Email es obligatorio
+              </div>
+              <div id="alerta" *ngIf="registroForm.get('email')?.hasError('email')">
+                *Formato no válido
+              </div>
+          </div>
+        <!-- ーーーーーーーーーーーーーー -->
+        <ion-item>
+          <ion-input type="password" formControlName="password" label="Password:" labelPlacement="floating"></ion-input>
+        </ion-item>
+          <div id="alerta" *ngIf="registroForm.get('password')?.invalid && (registroForm.get('password')?.dirty || 
+                      registroForm.get('password')?.touched)">
+              <div id="alerta" *ngIf="registroForm.get('password')?.hasError('required')">
+                *Campo obligatorio
+              </div>
+              <div id="alerta" *ngIf="registroForm.get('password')?.hasError('pattern')">
+                *Mínimo 8 caracteres y un número
+              </div>
+          </div>
+        <!-- ーーーーーーーーーーーーーー -->
+        <ion-item>
+          <ion-input type="text" placeholder="Ingrese primer nombre" formControlName="name1" label="Primer nombre" labelPlacement="floating"></ion-input>
+        </ion-item>
+          <div id="alerta" *ngIf="registroForm.get('name1')?.invalid && (registroForm.get('name1')?.dirty || 
+                      registroForm.get('name1')?.touched)">
+              <div id="alerta" *ngIf="registroForm.get('name1')?.hasError('required')">
+                *Campo obligatorio
+              </div>
+              <div id="alerta" *ngIf="registroForm.get('name1')?.hasError('minlength')">
+                *Cantidad requerida: 3
+              </div>
+          </div>
+        <!-- ーーーーーーーーーーーーーー -->
+        <ion-item>
+          <ion-input type="text" placeholder="Ingrese segundo nombre" formControlName="name2" label="Segundo nombre" labelPlacement="floating"></ion-input>
+        </ion-item>
+          <div id="alerta" *ngIf="registroForm.get('name2')?.invalid && (registroForm.get('name2')?.dirty || 
+                      registroForm.get('name2')?.touched)">
+              <div id="alerta" *ngIf="registroForm.get('name2')?.hasError('minlength')">
+                *Cantidad requerida: 3
+              </div>
+          </div>
+        <!-- ーーーーーーーーーーーーーー -->
+        <ion-item>
+          <ion-input type="text" placeholder="Ingrese primer apellido" formControlName="name3" label="Primer apellido" labelPlacement="floating"></ion-input>
+        </ion-item>
+          <div id="alerta" *ngIf="registroForm.get('name3')?.invalid && (registroForm.get('name3')?.dirty || 
+                      registroForm.get('name3')?.touched)">
+              <div id="alerta" *ngIf="registroForm.get('name3')?.hasError('required')">
+                *Campo obligatorio
+              </div>
+              <div id="alerta" *ngIf="registroForm.get('name3')?.hasError('minlength')">
+                *Cantidad requerida: 3
+              </div>
+          </div>
+        <!-- ーーーーーーーーーーーーーー -->
+        <ion-item>
+          <ion-input type="text" placeholder="Ingrese segundo apellido" formControlName="name4" label="Segundo apellido" labelPlacement="floating"></ion-input>
+        </ion-item>
+          <div id="alerta" *ngIf="registroForm.get('name4')?.invalid && (registroForm.get('name4')?.dirty || 
+                      registroForm.get('name4')?.touched)">
+              <div id="alerta" *ngIf="registroForm.get('name4')?.hasError('minlength')">
+                *Cantidad requerida: 3
+              </div>
+          </div>
+        <!-- ーーーーーーーーーーーーーー -->
+        <ion-item>
+          <ion-input type="text" placeholder="Ingrese telefono" formControlName="phone" label="Número telefónico" labelPlacement="floating"></ion-input>
+        </ion-item>
+          <div id="alerta" *ngIf="registroForm.get('phone')?.invalid && (registroForm.get('phone')?.dirty || 
+                      registroForm.get('phone')?.touched)">
+              <div id="alerta" *ngIf="registroForm.get('phone')?.hasError('required')">
+                *Campo obligatorio
+              </div>
+              <div id="alerta" *ngIf="registroForm.get('phone')?.hasError('minlength')">
+                *Cantidad requerida: 8
+              </div>
+          </div>
+        
+        <!-- ーーーーーーーーーーーーーー -->
+
+        <div style="text-align: center; margin-bottom: 0;">
+          <ion-button class="signup" (click)="signup()" [disabled]="!registroForm.valid" fill="clear">Registrarse</ion-button>
+        </div>   
+        
+      </form>
+
+    </ion-card-content>
+  </ion-card>
+</ion-content>

@@ -1,0 +1,60 @@
+<ion-content>
+
+  <div class="toolbar">
+    <ion-button (click)="goBack()" expand="block" fill="clear" shape="round">
+      <ion-icon name="chevron-back-outline"></ion-icon>
+    </ion-button>
+    <div>
+      <ion-title>Class-CheckIn:</ion-title>
+      <ion-title>Estudiantes</ion-title>
+    </div>
+  </div>
+  
+  <ion-card>
+    <ion-card-title>Iniciar Sesión</ion-card-title>
+    <ion-card-content>
+      <form [formGroup]="loginForm">
+        
+        <ion-item>
+          <ion-input type="text" placeholder="Ingrese usuario" label="Usuario:" labelPlacement="floating" formControlName="username" autofocus="true">
+          </ion-input>
+        </ion-item>
+          <div id="alerta" *ngIf="loginForm.get('username')?.invalid && (loginForm.get('username')?.dirty || loginForm.get('username')?.touched)">
+            <div id="alerta" *ngIf="loginForm.get('username')?.hasError('required')">
+              *Ingrese usuario
+            </div>
+            <div id="alerta" *ngIf="loginForm.get('username')?.hasError('minlength')">
+              *Caracteres insuficientes
+            </div>
+          </div>
+    
+        <ion-item>
+          <ion-input type="password" placeholder="Ingrese contraseña" label="Password:" labelPlacement="floating" formControlName="password">
+          </ion-input>
+        </ion-item>
+          <div id="alerta" *ngIf="loginForm.get('password')?.invalid && (loginForm.get('password')?.dirty || loginForm.get('password')?.touched)">
+            <div id="alerta" *ngIf="loginForm.get('password')?.hasError('required')">
+              *Contraseña obligatoria
+            </div>
+            <div id="alerta" *ngIf="loginForm.get('password')?.hasError('minlength')">
+              *Caracteres insuficientes
+            </div>
+          </div>
+
+      </form>
+      
+      <div style="text-align: center;">
+        <ion-button (click)="login()" fill="clear">Entrar</ion-button>
+      </div>
+
+    </ion-card-content>
+  </ion-card>
+
+  <div style="text-align: center; margin-bottom: 0;">
+    <ion-button class="signup" (click)="signup()" fill="clear">Registrarse</ion-button>
+  </div>
+  <div style="text-align: center; margin-bottom: 0;">
+    <ion-button class="signup" (click)="recover()" fill="clear">Recuperar contraseña</ion-button>
+  </div>
+
+</ion-content>

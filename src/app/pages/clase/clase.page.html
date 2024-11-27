@@ -1,0 +1,35 @@
+<ion-content [fullscreen]="true">
+
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="mostrarMenu()">
+        <ion-icon name="menu-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+      Clase {{ name }}
+    </ion-title>
+  </ion-toolbar>
+  
+  <div class="container">
+    <ion-item>
+      <ion-label>Aquí podrá gestionar sus clases</ion-label>
+    </ion-item>
+
+
+    <ion-card>
+      <ion-card-content>
+        <h4>Alumno:</h4>
+        <p>{{alname}} <br> {{email}}</p>
+
+        <ion-button (click)="ver()" expand="block" fill="clear" shape="round">
+          Ver alumno
+        </ion-button>
+        
+      </ion-card-content>
+    </ion-card>
+
+
+  </div>
+  
+</ion-content>
